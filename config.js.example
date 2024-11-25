@@ -25,14 +25,16 @@ let config = {
   http_port: 80,
   // https服务
   https_port: 443,
+  // 公众号配置
   token: "xxx",
-  // 项目上线使用正式的即可
   appid: 'xx',
   appsecret: 'xx',
   server_url: "xxx",
   // server_url: "http://www.xxx.xxx"
   // 星火配置
   spark_appid: "xx",
+  spark_apisecret: "xx",
+  spark_apikey: "xx",
   spark_domain: 'generalv3',// 看上面注释
   spark_hosturl: "wss://spark-api.xf-yun.com/v3.1/chat",//看上面注释
 }
