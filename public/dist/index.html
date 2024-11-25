@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>讯飞星火认知大模型V3.5</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      h1 {
+        text-align: center;
+        color: transparent;
+        -webkit-background-clip: text;
+        height: 40px;
+        line-height: 40px;
+        background-image: linear-gradient(to right, #68aef8, #6610f2);
+      }
+      #content {
+        font-size: 20px;
+
+        width: 100%;
+        padding: 20px;
+        height: calc(85%);
+        background-color: #e4eaf0;
+      }
+      #sendMsg {
+        height: calc(15% - 40px);
+        display: flex;
+        flex-direction: row;
+        align-items: end;
+      }
+      #msg {
+        height: 100%;
+        width: 70%;
+        border: 1px solid #68aef8;
+        border-radius: 5px;
+        padding: 20px;
+      }
+      #btn {
+        border: 1px solid #68aef8;
+        border-radius: 5px;
+        height: 100%;
+        width: 30%;
+        background: #6610f2;
+      }
+    </style>
+    <script type="module" crossorigin src="./assets/index-5bd37134.js"></script>
+  </head>
+
+  <body>
+    <h1>讯飞星火认知大模型V3.5</h1>
+    <textarea id="content"></textarea>
+    <div id="sendMsg">
+      <input id="msg" type="text" />
+      <button id="btn">发送</button>
+    </div>
+    <script>
+      // 获取query参数
+      const getQueryParams = () => {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const params = {};
+
+        for (const [key, value] of urlParams.entries()) {
+          params[key] = value;
+        }
+
+        return params;
+      };
+
+      // 获取cookie
+      const getCookie = (cookieName) => {
+        const strCookie = document.cookie;
+        const cookieList = strCookie.split(";");
+
+        for (let i = 0; i < cookieList.length; i++) {
+          const arr = cookieList[i].split("=");
+          if (cookieName === arr[0].trim()) {
+            return arr[1];
+          }
+        }
+
+        return "";
+      };
+      // const { nickname, headimgurl } = getQueryParams();
+      if (decodeURIComponent(getCookie("info"))) {
+        const { nickname, headimgurl } = JSON.parse(
+          decodeURIComponent(getCookie("info"))
+        );
+        if (!nickname || !headimgurl) {
+          window.location.href = "/wechat/handleToSparkRedirect";
+        } else {
+          alert("你好呀!!!" + nickname);
+        }
+      } else {
+        window.location.href = "/wechat/handleToSparkRedirect";
+      }
+    </script>
+    
+  </body>
+</html>

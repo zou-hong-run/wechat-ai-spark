@@ -1,0 +1,13 @@
+{
+  "name": "wechat-ai-spark",
+  "host": "xxx",
+  "protocol": "ftp",
+  "port": 21,
+  "username": "xxx",
+  "password": "xxx",
+  "remotePath": "/",
+  "uploadOnSave": true,
+  "useTempFile": false,
+  "openSsh": false,
+  "connectTimeout": 500
+}
